@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PricingController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/pricing', [PricingController::class, 'pricing'])->name('pricing');
+    Route::get('/checkout/{name}', [CheckoutController::class, 'checkout'])->name('checkout');
+    Route::get('/checkout-success', [CheckoutController::class, 'success'])->name('checkout.success');
 
 });
 
